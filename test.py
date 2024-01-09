@@ -1,6 +1,6 @@
 # hello
 
-# Oppgave 1: Vebjørn, Mathilde
+# Oppgave 1: Vebjørn og Mathilde
 
 
 # Oppgave 2: Gustav
