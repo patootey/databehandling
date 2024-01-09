@@ -1,6 +1,6 @@
 import pandas
 
-data = pandas.read_csv("konsumprisindex.csv", delimiter=";", decimal=",")
+data = pandas.read_csv("konsumprisindex.csv", delimiter=";")
 
 en = data.max()
 
