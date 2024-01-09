@@ -3,6 +3,7 @@
 # Oppgave 1:
 import csv
 import locale
+import numpy as np
 with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     head = next(filinnhold)
@@ -18,14 +19,14 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     for i in data:
         for x in range(len(i)):
             if i[x] == '.':
-                i[x] = ""
+                i[x] = np.nan
             elif x != 0:
                 i[x] = locale.atof(i[x])
             else:
                 i[x] = int(i[x])
-    for i in range(len(data)):
-        if i != 0:
-            print(min(data[i]))
+
+    for i in data:
+        print(i.index(min(i)))
 
 # Oppgave 2:
 # Oppgave 1: Vebjørn og Mathilde
