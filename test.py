@@ -7,6 +7,7 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
 print(data)
 
 # Oppgave 2:
+# Oppgave 1: Vebjørn og Mathilde
 
 
 # Oppgave 3:
