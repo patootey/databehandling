@@ -23,8 +23,9 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
                 i[x] = locale.atof(i[x])
             else:
                 i[x] = int(i[x])
-    for i in data:
-        print(i)
+    for i in range(len(data)):
+        if i != 0:
+            print(min(data[i]))
 
 # Oppgave 2:
 # Oppgave 1: Vebjørn og Mathilde
