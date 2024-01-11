@@ -49,10 +49,10 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
             year_with_max_change = years[i]
             values_for_max_change = konsmpris
 
-    print(
-        f"Året med størst endring i konsumprisindex fra januar til desember var {year_with_max_change}."
-    )
-    print(f"Dette var verdiene for alle månedene dette året: {values_for_max_change}")
+print(
+    f"Året med størst endring i konsumprisindex fra januar til desember var {year_with_max_change}."
+)
+print(f"Dette var verdiene for alle månedene dette året: {values_for_max_change}")
 
 print(
     f"Måneden med lavest konsumprisindex var {head[lo[1]]} i {lo[2]} med en verdi på {lo[0]}"
