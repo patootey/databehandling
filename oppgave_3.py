@@ -1,6 +1,10 @@
 import tkinter as tk 
-import oppgave_2 as opg2 
-
+import numpy as np
+import oppgave_2 as opg2
+data = np.loadtxt("konsumprisindex.csv",  delimiter=";", dtype=str).tolist()
+years = [int(x[0]) for x in data[1:]]
+months = [opg2.parse_yearly_data(x) for x in data[1:]]
+averages = [np.nanmean(x) for x in months]
 root = tk.Tk()
 root.geometry("400x300")
 frame = tk.Frame(root)
@@ -24,7 +28,7 @@ def button():
     belop = int(belop_entry.get())
     fra = int(fra_entry.get())
     til = int(til_entry.get())
-    if fra < 1929 or fra > 2023 or til < 1929 or til > 2023 or til <= fra:
+    if fra < 1929 or fra > 2023 or til < 1929 or til > 2023:
         output.config(text="feil år")
         fra_entry.delete(0,"end")
         til_entry.delete(0,"end")
@@ -33,9 +37,6 @@ def button():
     output.config(text=f"{calculator(belop, fra, til)} kr !!!")
 
 def calculator(belop, fra, til):
-    averages = opg2.averages
-    years = opg2.years
-
     return round(averages[years.index(til)] / averages[years.index(fra)] * belop, 1)
 
 tk.Button(frame, text="Se prisendring", command=button, bg="green").grid(column=1, row=4, padx=0)
