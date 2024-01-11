@@ -14,7 +14,6 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     for i in filinnhold:
         data.append(i)
     
-    # data[0][2] = float(data[0][2])
     # setlocale gjør at den fungerer og kan gjøre komma til dot
     locale.setlocale(locale.LC_ALL, '')
     for i in data:
@@ -25,19 +24,20 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
                 i[x] = locale.atof(i[x])
             else:
                 i[x] = int(i[x])
+
     years = [x[0] for x in data]
-    for i in data:
-        # print(i.index(min(i)))
-        # print(head[i.index(min(i))])
-        if min(i) < lo[0]:
-            lo[0] = min(i)
-            lo[1] = i.index(min(i))
-            lo[2] = i[0]
-        if max(i) > hi[0]:
-            hi[0] = max(i)
-            hi[1] = i.index(max(i))
-            hi[2] = i[0]
-        
+    for i in range(len(data)):
+        konsmpris = [x for x in data[i][2:]]
+
+        if min(konsmpris) < lo[0]:
+            lo[0] = min(konsmpris)
+            lo[1] = konsmpris.index(min(konsmpris))+2
+            lo[2] = years[i]
+        if max(konsmpris) > hi[0]:
+            hi[0] = max(konsmpris)
+            hi[1] = konsmpris.index(max(konsmpris))+2
+            hi[2] = years[i]
+            
 print(f"Måneden med lavest konsumprisindex var {head[lo[1]]} i {lo[2]} med en verdi på {lo[0]}")
 print(f"Måneden med høyest konsumprisindex var {head[hi[1]]} i {hi[2]} med en verdi på {hi[0]}")
 
