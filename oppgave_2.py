@@ -12,20 +12,17 @@ def graph_yearly_average(data : list):
     plt.show()
 
 def graph_months(data : list):
-    year = parse_yearly_data(data[1])
+    year = [x for x in parse_yearly_data(data[1])]
     month_names = data[0][2:]
-    print(year)
-    # for p in data:
-    #     if not skipped_first:
-    #         skipped_first = True
-    #         continue
-    #     years.append(int(p[0]))
+    for i in reversed(range(len(year))):
+        if (np.isnan(year[i])):
+            year.pop(i)
+            month_names.pop(i)
+    plt.bar(month_names, year, 0.5)
+    plt.show()
     pass
-
 
 data = np.loadtxt("konsumprisindex.csv",  delimiter=";", dtype=str).tolist()
 
 graph_yearly_average(data)
-
 graph_months(data)
-
