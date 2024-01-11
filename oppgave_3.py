@@ -24,7 +24,7 @@ def button():
     belop = int(belop_entry.get())
     fra = int(fra_entry.get())
     til = int(til_entry.get())
-    if fra < 1929 or fra > 2023 or til < 1929 or til > 2023 or til <= fra:
+    if fra < 1929 or fra > 2023 or til < 1929 or til > 2023:
         output.config(text="feil år")
         fra_entry.delete(0,"end")
         til_entry.delete(0,"end")
