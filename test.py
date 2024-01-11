@@ -7,8 +7,9 @@ import numpy as np
 with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     filinnhold = csv.reader(fil, delimiter=";")
     head = next(filinnhold)
-    hi = ["num", "mon"]
-    lo = ["num", "mon"]
+    # Verdi, måned, år
+    hi = [0, 0, 0]
+    lo = [100, 0, 0]
     data = []
     for i in filinnhold:
         data.append(i)
@@ -24,9 +25,21 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
                 i[x] = locale.atof(i[x])
             else:
                 i[x] = int(i[x])
-
+    years = [x[0] for x in data]
     for i in data:
-        print(i.index(min(i)))
+        # print(i.index(min(i)))
+        # print(head[i.index(min(i))])
+        if min(i) < lo[0]:
+            lo[0] = min(i)
+            lo[1] = i.index(min(i))
+            lo[2] = i[0]
+        if max(i) > hi[0]:
+            hi[0] = max(i)
+            hi[1] = i.index(max(i))
+            hi[2] = i[0]
+        
+print(f"Måneden med lavest konsumprisindex var {head[lo[1]]} i {lo[2]} med en verdi på {lo[0]}")
+print(f"Måneden med høyest konsumprisindex var {head[hi[1]]} i {hi[2]} med en verdi på {hi[0]}")
 
 # Oppgave 2:
 # Oppgave 1: Vebjørn og Mathilde
