@@ -25,7 +25,7 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
 
     years = [x[0] for x in data]
     for i in range(len(data)):
-        konsmpris = [x for x in data[i][2:]]
+        konsmpris = data[i][2:]
 
         if min(konsmpris) < lo[0]:
             lo[0] = min(konsmpris)
