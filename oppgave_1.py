@@ -59,6 +59,4 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
             hoy[1] = konsumpris.index(max(konsumpris)) + 2
             hoy[2] = aar[i]
 
-print(
-    f"Måneden med lavest konsumprisindex var {overskrift[lav[1]]} i {lav[2]} med en verdi på {lav[0]}\nMåneden med høyest konsumprisindex var {overskrift[hoy[1]]} i {hoy[2]} med en verdi på {hoy[0]}"
-)
+print(f"Måneden med lavest konsumprisindex var {overskrift[lav[1]]} i {lav[2]} med en verdi på {lav[0]}\nMåneden med høyest konsumprisindex var {overskrift[hoy[1]]} i {hoy[2]} med en verdi på {hoy[0]}")
