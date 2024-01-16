@@ -4,7 +4,6 @@ import numpy as np
 # Importerer csv for å behandle csv filen, locale for å skrive om filen og numpy 
 # for senere behandling
 
-#%% a)
 with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     # Variabel for innholdet i filen slik det er lest av csv med ';' 
     # som skille mellom verdier
@@ -26,6 +25,7 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
 
     # setlocale gjør at den fungerer og kan gjøre komma til dot
     locale.setlocale(locale.LC_ALL, "")
+    
     # Looper gjennom dataen og endrer verdiene til lesbare numre
     for i in data:
         for x in range(len(i)):
