@@ -18,6 +18,9 @@ def graph_yearly_averages(data : list):
     months = [parse_yearly_data(x) for x in data[1:]]
     averages = [np.nanmean(x) for x in months]
     plt.plot(years, averages)
+    plt.title("Gjennomsnittlige konsumprisindekser for hvert år")
+    plt.xlabel("År")
+    plt.ylabel("Gjennomsnittlig konsumprisindeks")
     plt.show()
 
 # Del b)
@@ -30,6 +33,9 @@ def graph_monthly_averages(data : list):
             year.pop(i)
             month_names.pop(i)
     plt.bar(month_names, year, 0.5)
+    plt.title("Konsumprisindekser for 2022")
+    plt.xlabel("Måneder")
+    plt.ylabel("Konsumpris")
     plt.show()
 
 # Leser data
