@@ -40,7 +40,7 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     year_with_max_change = 0
     values_for_max_change = []
 
-    for i in range(len(data)):
+    for i in range(1, len(data)):
         konsmpris = data[i][2:]
         change = max(konsmpris) - min(konsmpris)
 

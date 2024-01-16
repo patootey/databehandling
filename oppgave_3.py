@@ -1,10 +1,14 @@
 import tkinter as tk 
 import numpy as np
-import oppgave_2 as opg2
+
+def parse_yearly_data(data : list):
+    return [float(x.replace(',', '.')) if x != '.' else np.nan for x in data[2:]]
+
 data = np.loadtxt("konsumprisindex.csv",  delimiter=";", dtype=str).tolist()
 years = [int(x[0]) for x in data[1:]]
-months = [opg2.parse_yearly_data(x) for x in data[1:]]
+months = [parse_yearly_data(x) for x in data[1:]]
 averages = [np.nanmean(x) for x in months]
+
 root = tk.Tk()
 root.geometry("400x300")
 frame = tk.Frame(root)
