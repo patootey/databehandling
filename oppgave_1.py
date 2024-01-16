@@ -45,23 +45,20 @@ with open("konsumprisindex.csv", encoding="utf-8-sig") as fil:
     
     for i in range(len(data)):
         # Liste som inneholder kun konsumprisen og ikke gjennomsnitt eller år
-        konsmpris = data[i][2:]
+        konsumpris = data[i][2:]
 
         # Sjekker om den minste verdien er mindre enn den lagrede
-        if min(konsmpris) < lav[0]:
-            lav[0] = min(konsmpris)
-            lav[1] = konsmpris.index(min(konsmpris)) + 2
+        if min(konsumpris) < lav[0]:
+            lav[0] = min(konsumpris)
+            lav[1] = konsumpris.index(min(konsumpris)) + 2
             lav[2] = aar[i]
         
         # Sjekker om den største verdien er større enn den lagrede
-        if max(konsmpris) > hoy[0]:
-            hoy[0] = max(konsmpris)
-            hoy[1] = konsmpris.index(max(konsmpris)) + 2
+        if max(konsumpris) > hoy[0]:
+            hoy[0] = max(konsumpris)
+            hoy[1] = konsumpris.index(max(konsumpris)) + 2
             hoy[2] = aar[i]
 
 print(
-    f"Måneden med lavest konsumprisindex var {overskrift[lav[1]]} i {lav[2]} med en verdi på {lav[0]}"
-)
-print(
-    f"Måneden med høyest konsumprisindex var {overskrift[hoy[1]]} i {hoy[2]} med en verdi på {hoy[0]}"
+    f"Måneden med lavest konsumprisindex var {overskrift[lav[1]]} i {lav[2]} med en verdi på {lav[0]}\nMåneden med høyest konsumprisindex var {overskrift[hoy[1]]} i {hoy[2]} med en verdi på {hoy[0]}"
 )
